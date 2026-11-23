@@ -26,5 +26,59 @@ void PrintStudentCard(string name, int age, string group)
 
 PrintStudentCard("Егор", 18, "ИС-21");
 PrintStudentCard("Валерия", 17, "ИС-21");
+
+
+double CalculateScholarship(double baseAmount, double bonusPercent)
+{
+    return baseAmount + baseAmount * bonusPercent / 100;
+}
+
+bool IsEligibleForBonus(double averageGrade)
+{
+    return averageGrade >= 4.5;
+}
+
+double averageGrade = 4.7;
+double result;
+
+if (IsEligibleForBonus(averageGrade))
+{
+    result = CalculateScholarship(2000, 15);
+    Console.WriteLine($"Стипендия с надбавкой 15%: {result}");
+}
+else
+{
+    result = CalculateScholarship(2000, 0);
+    Console.WriteLine($"Стипендия без надбавки: {result}");
+}
+
+
+double CalculateAverageGrade(int[] grades)
+{
+    int sum = 0;
+    foreach (int grade in grades)
+    {
+        sum += grade;
+    }
+    return (double)sum / grades.Length;
+}
+
+int CountFives(int[] grades)
+{
+    int count = 0;
+    foreach (int grade in grades)
+    {
+        if (grade == 5)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+int[] grades = { 4, 5, 3, 5, 4 };
+double average = CalculateAverageGrade(grades);
+int fives = CountFives(grades);
+Console.WriteLine($"Средний балл: {average}, количество пятёрок: {fives}");
 */
 
