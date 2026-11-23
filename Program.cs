@@ -80,5 +80,64 @@ int[] grades = { 4, 5, 3, 5, 4 };
 double average = CalculateAverageGrade(grades);
 int fives = CountFives(grades);
 Console.WriteLine($"Средний балл: {average}, количество пятёрок: {fives}");
+
+
+void PrintDivider()
+{
+    Console.WriteLine("--------------------");
+}
+
+Console.WriteLine("Начало работы программы");
+PrintDivider();
+Console.WriteLine("Обработка данных");
+PrintDivider();
+Console.WriteLine("Формирование отчёта");
+PrintDivider();
+Console.WriteLine("Работа завершена");
+
+
+void PrintPerson(string name, int age)
+{
+    Console.WriteLine($"Имя: {name}, возраст: {age}");
+}
+
+PrintPerson("Анна", 20);
+PrintPerson("Дмитрий", 25);
+PrintPerson("Ольга", 19);
+
+
+Console.Write("Введите свою фамилию: ");
+string surname = Console.ReadLine()!.Trim();
+if (string.IsNullOrEmpty(surname)) {
+Console.WriteLine("Фамилия не введена. Завершение работы.");
+return;
+}
+Random rnd = new(surname.GetHashCode() + DateTime.Now.DayOfYear);
+var assigned = Enumerable.Range(1, 10)
+.OrderBy(_ => rnd.Next())
+.Take(2)
+.OrderBy(x => x)
+.ToList();
+Console.WriteLine($"Задачи: №{assigned[0]} и №{assigned[1]}");
+
+
+void PrintSeparator()
+{
+    Console.WriteLine("====================");
+}
+
+Console.WriteLine("Меню открыто");
+PrintSeparator();
+Console.WriteLine("Раздел «Оценки»");
+PrintSeparator();
+Console.WriteLine("Раздел «Расписание»");
+PrintSeparator();
 */
 
+double CalculateArea(double width, double height)
+{
+    return width * height;
+}
+
+double area = CalculateArea(5.5, 3.2);
+Console.WriteLine($"Площадь прямоугольника: {area}");
